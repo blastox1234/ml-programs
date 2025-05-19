@@ -1,0 +1,17 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv(r"C:\Users\user\OneDrive\Desktop\\iris.csv")
+sns.pairplot(df)
+plt.title("Pair Plot of the dataset")
+plt.show()
+
+if df.iloc[:, 0].dtype == 'object':
+    sns.countplot(x = df.columns[0], data = df)
+    plt.title("Bar chart of categorical column")
+    plt.xlabel(df.columns[0])
+    plt.ylabel("count")
+    plt.show()
+else:
+    print("NO categorical column found to plot bar chart")
